@@ -1,5 +1,4 @@
 ﻿bool prosseguir = true;
-Produto p = new Produto();
 List<Produto> produtos = new List<Produto>();
 
 while (prosseguir)
@@ -16,7 +15,8 @@ while (prosseguir)
 
     if (decisao == 1)
     {
-        Console.Clear();
+        Produto p = new Produto();
+        //Console.Clear();
         Console.WriteLine("Criando Produto");
         Console.WriteLine("---------------------");
 
@@ -28,22 +28,29 @@ while (prosseguir)
         p.Preco = double.Parse(Console.ReadLine());
         Console.WriteLine("---------------------");
 
-        Console.WriteLine("Quantas unidades entre em estoque? ");
+        Console.Write("Quantas unidades entra em estoque? ");
         p.Quantidade = int.Parse(Console.ReadLine());
 
         produtos.Add(p);
 
+
     }
     else if (decisao == 2)
     {
-        foreach (Produto item in produtos)
+        //Console.Clear();
+        Console.WriteLine("Produtos: ");
+        Console.WriteLine("---------------------");
+
+        foreach (Produto produto in produtos)
         {
-            Console.WriteLine(p.Nome);
-            Console.WriteLine(p.Preco);
-            Console.WriteLine(p.Quantidade);
+
+            Console.WriteLine($"Produto: {produto.Nome}");
+            Console.WriteLine($"Preco: {produto.Preco}");
+            Console.WriteLine($"Quantidade: {produto.Quantidade}");
+            Console.WriteLine("---------------------");
+
         }
+        Console.ReadKey();
     }
-
-    Console.ReadKey();
-
+    //Console.Clear();
 }
