@@ -9,6 +9,7 @@ while (prosseguir)
 
     Console.WriteLine("1 - Cadastrar Produto");
     Console.WriteLine("2 - Mostrar Produtos Cadastrados");
+    Console.WriteLine("3 - Deduzir Estoque");
 
     Console.Write("O que deseja fazer? ");
     int decisao = int.Parse(Console.ReadLine());
@@ -51,6 +52,27 @@ while (prosseguir)
 
         }
         Console.ReadKey();
+
+    }
+    else if (decisao == 3)
+    {
+        Console.WriteLine("---------------------");
+        Console.WriteLine("Retirar Quantidade Do Estoque");
+        Console.Write("Qual item você deseja retirar do Estoque? ");
+        string produtoDeduzir = Console.ReadLine();
+
+        Console.WriteLine("---------------------");
+        Console.Write("Quantas unidades deseja deduzir? ");
+        int deduzQuantidade = int.Parse(Console.ReadLine());
+
+        foreach (Produto produto in produtos)
+        {
+            if (produto.Nome == produtoDeduzir)
+            {
+                produto.Quantidade = produto.Quantidade - deduzQuantidade;
+            }
+        }
+
     }
     //Console.Clear();
 }
