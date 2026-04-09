@@ -10,11 +10,4 @@ public class Produto
     public int Quantidade { get; set; }
     public decimal Preco { get; set; }
 }
-=======
-class Produto
-{
-    public string Nome;
-    public double Preco;
-    public int Quantidade;
-}
->>>>>>> 650a6a2e8c0dc8382637ce5f1b6f7d980852b377
+

@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-﻿using SistemaEstoque.ConsoleApp;
+using SistemaEstoque.ConsoleApp;
 
 
 bool prosseguir = true;
@@ -62,7 +62,7 @@ while (prosseguir)
         Console.ReadLine();
     }
 
-=======
+
     Console.WriteLine("1 - Cadastrar Produto");
     Console.WriteLine("2 - Mostrar Produtos Cadastrados");
     Console.WriteLine("3 - Deduzir Estoque");
@@ -131,5 +131,5 @@ while (prosseguir)
 
     }
     //Console.Clear();
->>>>>>> 650a6a2e8c0dc8382637ce5f1b6f7d980852b377
+
 }
