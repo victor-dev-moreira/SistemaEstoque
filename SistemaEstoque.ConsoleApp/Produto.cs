@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 using System;
 
 namespace SistemaEstoque.ConsoleApp;
