@@ -1,6 +1,5 @@
 using SistemaEstoque.ConsoleApp;
 
-
 bool prosseguir = true;
 
 List<Produto> produtos = new List<Produto>();
@@ -8,8 +7,6 @@ List<Produto> produtos = new List<Produto>();
 Produto product = new Produto();
 
 int escolha;
-
-
 
 while (prosseguir)
 {
@@ -51,11 +48,22 @@ while (prosseguir)
         Console.WriteLine("Lista de Produtos");
         foreach (var produto in produtos)
         {
-            Console.WriteLine(produto.Sku);
+            Console.WriteLine($"{produto.Sku} - ");
             Console.WriteLine(produto.Nome);
             Console.WriteLine(produto.Quantidade);
             Console.WriteLine(produto.Preco);
         }
         Console.ReadLine();
+    }
+    else if (escolha == 3)
+    {
+        foreach (var produto in produtos)
+        {
+            Console.Write($"SKU: {produto.Sku} - ");
+            Console.WriteLine($"Nome: {produto.Nome}");
+            Console.WriteLine($"Estoque: {produto.Quantidade}");
+        }
+        Console.WriteLine("Qual SKU deseja alterar a quantidade?");
+        int skuQuantidade = int.Parse(Console.ReadLine());
     }
 }
