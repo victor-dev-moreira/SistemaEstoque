@@ -4,7 +4,7 @@ bool prosseguir = true;
 
 List<Produto> produtos = new List<Produto>();
 
-Produto product = new Produto();
+
 
 int escolha;
 
@@ -28,16 +28,20 @@ while (prosseguir)
 
     if (escolha == 1)
     {
+        Produto product = new Produto();
         Console.WriteLine("---------------------");
         Console.WriteLine("Você escolheu adicionar um produto!");
         Console.WriteLine("---------------------");
 
         Console.Write("Qual SKU do produto? ");
         product.Sku = int.Parse(Console.ReadLine());
+
         Console.Write("Qual nome do produto? ");
         product.Nome = Console.ReadLine();
+
         Console.Write("Qual a quantidade de estoque? ");
         product.Quantidade = int.Parse(Console.ReadLine());
+
         Console.Write("Qual o preco do produto? ");
         product.Preco = decimal.Parse(Console.ReadLine());
 
@@ -48,10 +52,12 @@ while (prosseguir)
         Console.WriteLine("Lista de Produtos");
         foreach (var produto in produtos)
         {
-            Console.WriteLine($"{produto.Sku} - ");
-            Console.WriteLine(produto.Nome);
-            Console.WriteLine(produto.Quantidade);
-            Console.WriteLine(produto.Preco);
+            Console.WriteLine("---------------------");
+            Console.WriteLine($"SKU: {produto.Sku} - ");
+            Console.WriteLine($"Nome: {produto.Nome}");
+            Console.WriteLine($"Estoque: {produto.Quantidade}");
+            Console.WriteLine($"Preco: {produto.Preco}");
+            Console.WriteLine("---------------------");
         }
         Console.ReadLine();
     }
@@ -59,11 +65,24 @@ while (prosseguir)
     {
         foreach (var produto in produtos)
         {
+            Console.WriteLine("---------------------");
             Console.Write($"SKU: {produto.Sku} - ");
             Console.WriteLine($"Nome: {produto.Nome}");
             Console.WriteLine($"Estoque: {produto.Quantidade}");
+            Console.WriteLine("---------------------");
         }
-        Console.WriteLine("Qual SKU deseja alterar a quantidade?");
+        Console.Write("Qual SKU deseja alterar a quantidade?");
         int skuQuantidade = int.Parse(Console.ReadLine());
+
+        Console.Write("Quantas você quer adicionar? ");
+        int quantidadeAlterar = int.Parse(Console.ReadLine());
+
+        foreach (var produto in produtos)
+        {
+            if (produto.Sku == skuQuantidade)
+            {
+                produto.Quantidade = produto.Quantidade + quantidadeAlterar;
+            }
+        }
     }
 }
