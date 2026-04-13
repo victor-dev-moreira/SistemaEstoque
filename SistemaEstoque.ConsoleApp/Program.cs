@@ -1,3 +1,4 @@
+using System.Net.Http.Headers;
 using SistemaEstoque.ConsoleApp;
 
 bool prosseguir = true;
@@ -71,18 +72,62 @@ while (prosseguir)
             Console.WriteLine($"Estoque: {produto.Quantidade}");
             Console.WriteLine("---------------------");
         }
-        Console.Write("Qual SKU deseja alterar a quantidade?");
-        int skuQuantidade = int.Parse(Console.ReadLine());
 
-        Console.Write("Quantas você quer adicionar? ");
-        int quantidadeAlterar = int.Parse(Console.ReadLine());
 
-        foreach (var produto in produtos)
+        Console.WriteLine("---------------------");
+        Console.WriteLine("1 para adicionar 2 para remover");
+        Console.WriteLine("Deseja Adicionar ou Remover do Estoque? ");
+        int adicionarRemover = int.Parse(Console.ReadLine());
+
+        if (adicionarRemover == 1)
         {
-            if (produto.Sku == skuQuantidade)
+            Console.Write("Qual SKU deseja alterar a quantidade?");
+            int skuQuantidade = int.Parse(Console.ReadLine());
+
+            Console.Write("Quantas você quer adicionar? ");
+            int quantidadeAlterar = int.Parse(Console.ReadLine());
+
+            foreach (var produto in produtos)
             {
-                produto.Quantidade = produto.Quantidade + quantidadeAlterar;
+                if (produto.Sku == skuQuantidade)
+                {
+                    produto.Quantidade = produto.Quantidade + quantidadeAlterar;
+                }
             }
+        }
+        else
+        {
+            Console.Write("Qual SKU deseja alterar a quantidade?");
+            int skuQuantidade = int.Parse(Console.ReadLine());
+
+            Console.Write("Quantas você quer remover? ");
+            int quantidadeAlterar = int.Parse(Console.ReadLine());
+
+            foreach (var produto in produtos)
+            {
+                if (produto.Sku == skuQuantidade)
+                {
+                    produto.Quantidade = produto.Quantidade + quantidadeAlterar;
+                }
+            }
+        }
+
+    }
+    else if (escolha == 4)
+    {
+        Console.WriteLine("Qual SKU deseja remover? ");
+        int removeSku = int.Parse(Console.ReadLine());
+
+        Produto produtoRemover = produtos.Find(p => p.Sku == removeSku);
+
+        if (produtoRemover != null)
+        {
+            produtos.Remove(produtoRemover);
+            Console.WriteLine("Produto Removido!");
+        }
+        else
+        {
+            Console.WriteLine("Produto Não Encontrado");
         }
     }
 }
